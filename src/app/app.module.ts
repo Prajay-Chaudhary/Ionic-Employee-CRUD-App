@@ -12,12 +12,25 @@ import { FormsModule } from '@angular/forms';
 import { EditEmployeeModalComponent } from './edit-employee-modal/edit-employee-modal.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { AddEmployeeModalComponent } from './add-employee-modal/add-employee-modal.component';
 
 @NgModule({
-  declarations: [AppComponent, EmployeesComponent, EditEmployeeModalComponent, LoginComponent,
-    RegisterComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, FormsModule],
+  declarations: [
+    AppComponent,
+    EmployeesComponent,
+    EditEmployeeModalComponent,
+    LoginComponent,
+    RegisterComponent,
+    AddEmployeeModalComponent,
+  ],
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot(),
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+  ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

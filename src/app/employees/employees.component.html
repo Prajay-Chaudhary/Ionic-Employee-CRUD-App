@@ -38,6 +38,9 @@
     </ion-row>
   </ion-list>
 
+  <ion-button (click)="openAddEmployeeModal()" expand="block"
+    >Add Employee</ion-button
+  >
   <ion-title>ADD EMPLOYEE</ion-title>
   <form #employeeForm="ngForm" (ngSubmit)="addEmployee(employeeForm.value)">
     <ion-item>
