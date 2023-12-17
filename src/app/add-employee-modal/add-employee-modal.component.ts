@@ -1,6 +1,7 @@
-// add-employee-modal.component.ts
 import { Component } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { NgForm } from '@angular/forms';
+import { EmployeeService } from '../services/employee.service';
 
 @Component({
   selector: 'app-add-employee-modal',
@@ -8,15 +9,29 @@ import { ModalController } from '@ionic/angular';
   styleUrls: ['add-employee-modal.component.scss'],
 })
 export class AddEmployeeModalComponent {
-  constructor(private modalController: ModalController) {}
+  constructor(
+    private modalController: ModalController,
+    private employeeService: EmployeeService
+  ) {}
 
-  addEmployee(employeeData: any) {
-    // Handle adding employee logic here
-    console.log('Adding employee:', employeeData);
-    this.dismiss();
+  addEmployee(employeeForm: NgForm) {
+    if (employeeForm.valid) {
+      const employeeData = employeeForm.value;
+      const newEmployee = { ...employeeData, materialAssigned: [] };
+
+      this.employeeService.addEmployee(newEmployee).subscribe(
+        () => {
+          console.log('Employee added successfully');
+          this.dismiss({ createdEmployee: newEmployee });
+        },
+        (error) => {
+          console.error('Error adding employee:', error);
+        }
+      );
+    }
   }
 
-  dismiss() {
-    this.modalController.dismiss();
+  dismiss(data?: any) {
+    this.modalController.dismiss(data);
   }
 }

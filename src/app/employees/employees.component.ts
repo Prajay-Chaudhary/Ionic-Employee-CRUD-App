@@ -76,6 +76,14 @@ export class EmployeesComponent implements OnInit {
     const modal = await this.modalController.create({
       component: AddEmployeeModalComponent,
     });
+
     await modal.present();
+
+    // Listen for the modal to close and handle any data returned
+    const { data } = await modal.onWillDismiss();
+    if (data?.createdEmployee) {
+      console.log('Employee created:', data.createdEmployee);
+      this.loadEmployees();
+    }
   }
 }
