@@ -1,0 +1,27 @@
+<form #editEmployeeForm="ngForm" (ngSubmit)="onSubmit(editEmployeeForm)">
+  <ion-item>
+    <ion-label position="floating">Employee Number</ion-label>
+    <ion-input type="num" name="num" [(ngModel)]="employee.num" required></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">First Name</ion-label>
+    <ion-input type="text" name="firstname" [(ngModel)]="employee.firstname" required></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Last Name</ion-label>
+    <ion-input type="text" name="lastname" [(ngModel)]="employee.lastname" required></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Email</ion-label>
+    <ion-input type="email" name="email" [(ngModel)]="employee.email" required></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Age</ion-label>
+    <ion-input type="age" name="age" [(ngModel)]="employee.age" required></ion-input>
+  </ion-item>
+
+  <ion-button type="submit" expand="block">Update Employee</ion-button>
+</form>
