@@ -7,6 +7,7 @@ import { EditEmployeeModalComponent } from '../edit-employee-modal/edit-employee
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 import { AddEmployeeModalComponent } from '../add-employee-modal/add-employee-modal.component';
+import { ToastController } from '@ionic/angular';
 @Component({
   selector: 'app-employees',
   templateUrl: './employees.component.html',
@@ -20,7 +21,8 @@ export class EmployeesComponent implements OnInit {
     private employeeService: EmployeeService,
     private modalController: ModalController,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private toastController: ToastController
   ) {}
 
   ngOnInit() {
@@ -38,6 +40,7 @@ export class EmployeesComponent implements OnInit {
     this.employeeService.addEmployee(newEmployee as Employee).subscribe(() => {
       this.loadEmployees();
       this.employeeForm.reset();
+      this.presentToast('Employee added successfully');
     });
   }
 
@@ -50,6 +53,7 @@ export class EmployeesComponent implements OnInit {
   deleteEmployee(employeeId: number) {
     this.employeeService.deleteEmployee(employeeId).subscribe(() => {
       this.loadEmployees();
+      this.presentToast('Employee deleted successfully');
     });
   }
 
@@ -64,11 +68,14 @@ export class EmployeesComponent implements OnInit {
     const { data } = await modal.onWillDismiss();
     if (data?.updatedEmployee) {
       this.updateEmployee(data.updatedEmployee);
+      this.presentToast('Employee edited successfully');
     }
   }
 
-  logout() {
+  async logout() {
     this.authService.logout();
+
+    this.presentToast('Logout successful');
     this.router.navigate(['/login']);
   }
 
@@ -85,5 +92,17 @@ export class EmployeesComponent implements OnInit {
       console.log('Employee created:', data.createdEmployee);
       this.loadEmployees();
     }
+  }
+
+  // Present a toast with the specified message
+  async presentToast(message: string) {
+    const toast = await this.toastController.create({
+      message,
+      duration: 2000,
+      position: 'bottom',
+      color: 'success',
+    });
+
+    toast.present();
   }
 }

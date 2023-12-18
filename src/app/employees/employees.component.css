@@ -1,18 +1,15 @@
-.employee-card {
-    width: 100%;
-    max-width: 350px;
-    height: 200px;
-    margin: 10px;
-    align-content: center;
+ion-button {
+  --border-radius: 5px;
+  --padding-start: 8px;
+  --padding-end: 8px;
 }
 
-.custom-buttons ion-button {
-    margin-right: 8px;
-    border-radius: 10px;
-    font-size: 16px;
-    padding: 10px 16px;
+.ion-icon-add {
+  font-size: 20px;
+  color: #0db70d;
 }
 
-.custom-buttons ion-button:hover {
-    border-radius: 10px;
+.ion-icon-logout {
+  font-size: 20px;
+  color: #e34a28;
 }

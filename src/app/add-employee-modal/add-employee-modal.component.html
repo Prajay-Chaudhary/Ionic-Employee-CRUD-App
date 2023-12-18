@@ -1,14 +1,13 @@
-<!-- add-employee-modal.component.html -->
 <ion-header>
   <ion-toolbar>
     <ion-title>Add Employee</ion-title>
     <ion-buttons slot="end">
-      <ion-button (click)="dismiss()">Close</ion-button>
+      <ion-button (click)="dismiss()" color="danger">Close</ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content scroll-y="false">
   <form #employeeForm="ngForm" (ngSubmit)="addEmployee(employeeForm)">
     <ion-item>
       <ion-label position="floating">Employee Number</ion-label>
@@ -39,7 +38,8 @@
       <ion-input type="text" name="profilImage" ngModel></ion-input>
     </ion-item>
 
-    <ion-button type="submit" expand="block">Add Employee</ion-button>
+    <ion-button type="submit" expand="block" color="success"
+      >Add Employee</ion-button
+    >
   </form>
-  <ion-content> </ion-content
-></ion-content>
+</ion-content>

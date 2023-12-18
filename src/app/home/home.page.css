@@ -1,0 +1,53 @@
+/* home.page.scss */
+ion-content {
+  --ion-background-color: #121212;
+  /* Dark background color */
+}
+
+ion-title {
+  font-size: 2em;
+  /* Increase the title font size */
+  font-weight: bold;
+  color: #fff;
+  /* White text color */
+  text-align: center;
+  margin-top: 1em;
+  /* Add some top margin */
+}
+
+ion-card {
+  --ion-background-color: #1f1f1f;
+  /* Dark card background color */
+  --border-radius: 10px;
+  /* Add a border-radius to the card */
+  margin: 1em;
+  /* Add margin around the card */
+}
+
+ion-card-content {
+  color: #fff;
+  /* White text color inside the card */
+}
+
+p {
+  font-size: 1.2em;
+  line-height: 1.5;
+  color: #ccc;
+  /* Lighter text color */
+  text-align: justify;
+  /* Justify text for a clean look */
+}
+
+ion-button {
+  --ion-background-color: #3498db;
+  /* Button background color */
+  --ion-text-color: #fff;
+  /* Button text color */
+  margin-top: 1em;
+  /* Add top margin to the button */
+}
+
+ion-button:hover {
+  --ion-background-color: #2980b9;
+  /* Button background color on hover */
+}

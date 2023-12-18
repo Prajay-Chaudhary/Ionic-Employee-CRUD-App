@@ -1,7 +1,21 @@
-<ion-button (click)="logout()">Logout</ion-button>
-
+<ion-header>
+  <ion-toolbar>
+    <ion-title>ALL EMPLOYEES</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="openAddEmployeeModal()">
+        <ion-icon slot="icon-only" name="add" class="ion-icon-add"></ion-icon>
+      </ion-button>
+      <ion-button (click)="logout()">
+        <ion-icon
+          slot="icon-only"
+          name="log-out"
+          class="ion-icon-logout"
+        ></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
 <ion-content>
-  <ion-title>ALL EMPLOYEES</ion-title>
   <ion-list>
     <ion-row wrap>
       <ion-col
@@ -25,7 +39,7 @@
               </ion-item>
             </ion-list>
             <div class="custom-buttons">
-              <ion-button color="primary" (click)="editEmployee(employee)"
+              <ion-button color="secondary" (click)="editEmployee(employee)"
                 >Edit</ion-button
               >
               <ion-button color="danger" (click)="deleteEmployee(employee.id)"
@@ -37,41 +51,4 @@
       </ion-col>
     </ion-row>
   </ion-list>
-
-  <ion-button (click)="openAddEmployeeModal()" expand="block"
-    >Add Employee</ion-button
-  >
-  <ion-title>ADD EMPLOYEE</ion-title>
-  <form #employeeForm="ngForm" (ngSubmit)="addEmployee(employeeForm.value)">
-    <ion-item>
-      <ion-label position="floating">Employee Number</ion-label>
-      <ion-input type="text" name="num" ngModel required></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">First Name</ion-label>
-      <ion-input type="text" name="firstname" ngModel required></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">Last Name</ion-label>
-      <ion-input type="text" name="lastname" ngModel required></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">Email</ion-label>
-      <ion-input type="email" name="email" ngModel required></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">Age</ion-label>
-      <ion-input type="text" name="age" ngModel required></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label>Validated</ion-label>
-      <ion-checkbox slot="start" name="validated" ngModel></ion-checkbox>
-    </ion-item>
-    <ion-item>
-      <ion-label position="floating">Profile Image URL</ion-label>
-      <ion-input type="text" name="profilImage" ngModel></ion-input>
-    </ion-item>
-
-    <ion-button type="submit" expand="block">Add Employee</ion-button>
-  </form>
 </ion-content>
